@@ -1,0 +1,108 @@
+// everything that is reusable – buttons, navbars, cards, and so on
+.card {
+	background-color: var(--color-card-bg);
+	display: flex;
+	color: var(--color-main-paragraph);
+	font-family: 'Inter', sans-serif;
+	border-radius: 0.8rem;
+	overflow: hidden;
+
+	@include respond(phone) {
+		flex-direction: column;
+	}
+
+	@include respond(tab-port) {
+		flex-direction: column;
+	}
+
+	&__left {
+		padding: 7.2rem;
+		padding-right: 9.5rem;
+		flex: 0 0 50%;
+
+		@include respond(phone) {
+			order: 1;
+			padding: 4.5rem 3.15rem;
+			text-align: center;
+		}
+
+		@include respond(tab-port) {
+			order: 1;
+		}
+	}
+
+	&__right {
+		flex: 0 0 50%;
+		position: relative;
+
+		&::after {
+			content: '';
+			background-color: rgba(170, 92, 219, 0.6);
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	&__heading {
+		&-primary {
+			font-size: 3.6rem;
+			font-weight: 700;
+			color: var(--color-white);
+			line-height: 4.4rem;
+			font-weight: 700;
+
+			@include respond(phone) {
+				font-size: 2.8rem;
+				line-height: 3.2rem;
+			}
+		}
+
+		&-secondary {
+			color: var(--color-white);
+			line-height: 2.9rem;
+			font-weight: 700;
+		}
+	}
+
+	&__pargraph {
+		line-height: 2.5rem;
+		font-weight: 400;
+	}
+
+	&__details {
+		display: flex;
+		justify-content: space-between;
+
+		& > div:not(:last-child) {
+			@include respond(phone) {
+				margin-bottom: 3rem;
+			}
+		}
+		@include respond(phone) {
+			display: block;
+		}
+	}
+
+	&__span {
+		font-family: 'Lexend Deca', sans-serif;
+		font-size: 1.2rem;
+		text-transform: uppercase;
+	}
+
+	&__img {
+		height: 120%;
+
+		@include respond(tab-port) {
+			height: auto;
+			width: 100%;
+		}
+
+		@include respond(phone) {
+			height: auto;
+			width: 100%;
+		}
+	}
+}

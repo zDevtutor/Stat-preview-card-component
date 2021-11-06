@@ -1,0 +1,14 @@
+// General Layout container and grid systems
+.container {
+	max-width: var(--max-width);
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	height: 100vh;
+
+	@include respond(phone) {
+		height: auto;
+		display: block;
+		margin: 5rem auto;
+	}
+}

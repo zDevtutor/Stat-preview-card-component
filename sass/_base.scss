@@ -1,0 +1,63 @@
+// resets, variables, mixins, and utility classes
+
+:root {
+	--color-main-bg: hsl(233, 47%, 7%);
+	--color-card-bg: hsl(244, 38%, 16%);
+	--color-accent: hsl(277, 64%, 61%);
+	--color-white: hsl(0, 0%, 100%);
+	--color-main-paragraph: hsla(0, 0%, 100%, 0.75);
+	--color-state-headings: hsla(0, 0%, 100%, 0.6);
+	--max-width: 85%;
+}
+
+// Mixins
+@mixin respond($breakpoint) {
+	@if $breakpoint == tab-port {
+		@media screen and (max-width: 56.25em) {
+			@content;
+		} //900px
+	}
+	@if $breakpoint == phone {
+		@media screen and (max-width: 37.5em) {
+			@content;
+		} //600px
+	}
+}
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+}
+
+html {
+	font-size: 62.5%;
+	box-sizing: border-box;
+}
+
+body {
+	font-size: 1.5rem;
+	background-color: var(--color-main-bg);
+}
+
+.u-margin-bottom-small {
+	margin-bottom: 2.8rem;
+
+	@include respond(phone) {
+		margin-bottom: 1.2rem;
+	}
+}
+
+.u-margin-bottom-large {
+	margin-bottom: 7.5rem;
+
+	@include respond(phone) {
+		margin-bottom: 1.8rem;
+	}
+}
+
+.highlight {
+	color: var(--color-accent);
+}
